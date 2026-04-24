@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Collection Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-car-side"></i> Car Collection</h1>
+                <p>Your automotive dashboard</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="container">
+
+        <!-- Stats Cards -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-car"></i></div>
+                <div class="stat-info">
+                    <h3 id="totalCarsCount">9</h3>
+                    <p>Total Cars</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                <div class="stat-info">
+                    <h3>2</h3>
+                    <p>Sports Cars</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                <div class="stat-info">
+                    <h3>1</h3>
+                    <p>Electric</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-info">
+                    <h3>1</h3>
+                    <p>Hypercar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="actions-section">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <a href="carcollection.html" class="action-card">
+                    <i class="fas fa-th-large"></i>
+                    <h3>View Collection</h3>
+                    <p>Browse all your cars</p>
+                </a>
+                <a href="carcollection.html" class="action-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Quick Search</h3>
+                    <p>Find your favorite car</p>
+                </a>
+                <a href="carcollection.html?addCar=true" class="action-card">
+                    <i class="fas fa-plus"></i>
+                    <h3>Add New Car</h3>
+                    <p>Add to your collection</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Viewed Tesla Model S</span>
+                    <small>2 hours ago</small>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-star"></i>
+                    <span>Favorited Ferrari F8</span>
+                    <small>1 day ago</small>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-search"></i>
+                    <span>Searched for SUVs</span>
+                    <small>2 days ago</small>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Car Collection Dashboard</p>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

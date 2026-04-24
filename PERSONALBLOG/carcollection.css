@@ -1,0 +1,227 @@
+/* ========================================
+   SIMPLE CAR THEME CSS
+   ======================================== */
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap');
+
+/* Variables */
+:root {
+    --black: #0d0d0d;
+    --dark: #1a1a1a;
+    --gray: #2d2d2d;
+    --red: #ff3b3b;
+    --orange: #ff6b35;
+    --silver: #c0c0c0;
+    --white: #e8e8e8;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: var(--dark);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--red);
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--red);
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--silver);
+}
+
+/* Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Filter Buttons */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    padding: 12px 24px;
+    border: 2px solid var(--red);
+    background: transparent;
+    color: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--red);
+}
+
+/* Cars Grid */
+.carsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 25px;
+}
+
+/* Car Card */
+.carCard {
+    background: var(--dark);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+    transition: 0.3s;
+}
+
+.carCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--red);
+}
+
+.carCard.hidden {
+    display: none;
+}
+
+/* Car Image */
+.carImage {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.carImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.carCard:hover .car-image img {
+    transform: scale(1.05);
+}
+
+/* Car Info */
+.carInfo {
+    padding: 20px;
+}
+
+.carBrand {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--red);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.carName {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+/* Specs Grid */
+.carSpecs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.specItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+}
+
+.specIcon {
+    width: 36px;
+    height: 36px;
+    background: var(--gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.specItem strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--white);
+}
+
+.specItem small {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--silver);
+    text-transform: uppercase;
+}
+
+/* Description */
+.carDdescription {
+    color: var(--silver);
+    font-size: 0.9rem;
+    padding-top: 15px;
+    border-top: 1px solid var(--gray);
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 3px solid var(--red);
+}
+
+footer p {
+    color: var(--silver);
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .carsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-btn {
+        padding: 10px 18px;
+        font-size: 0.75rem;
+    }
+}

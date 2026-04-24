@@ -1,0 +1,452 @@
+
+
+/* ── Search Bar ─────────────────────────────────────────────── */
+.searchSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+#searchBar {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 20px;
+  background: var(--dark);
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#searchBar::placeholder {
+  color: var(--silver);
+}
+
+#searchBar:focus {
+  border-color: var(--red);
+}
+
+/* ── Floating Add Car Button ────────────────────────────────── */
+#addCarBtn {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 14px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(255, 59, 59, 0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+
+#addCarBtn:hover {
+  background: var(--orange);
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* ── Modal Overlay ──────────────────────────────────────────── */
+#addCarModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#addCarModal.active {
+  display: flex;
+}
+
+/* ── Modal Box ──────────────────────────────────────────────── */
+.modalBox {
+  background: var(--dark);
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  padding: 35px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.25s ease;
+}
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 16px;
+}
+
+.modalHeader h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--red);
+  font-size: 1.3rem;
+}
+
+#closeModal {
+  background: none;
+  border: none;
+  color: var(--silver);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+#closeModal:hover {
+  color: var(--red);
+}
+
+/* ── Form Fields ────────────────────────────────────────────── */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup.full {
+  grid-column: 1 / -1;
+}
+
+.formGroup label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  background: var(--gray);
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: var(--red);
+}
+
+.formGroup select option {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ── Image Upload Area ──────────────────────────────────────── */
+.imageUploadArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.orDivider {
+  text-align: center;
+  color: var(--silver);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+#imagePreview {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  display: none;
+  margin-top: 8px;
+}
+
+/* ── Modal Buttons ──────────────────────────────────────────── */
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray);
+}
+
+#cancelBtn {
+  background: transparent;
+  border: 2px solid var(--gray);
+  color: var(--silver);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+#cancelBtn:hover {
+  border-color: var(--silver);
+  color: var(--white);
+}
+
+#submitCarBtn {
+  background: var(--red);
+  border: none;
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#submitCarBtn:hover {
+  background: var(--orange);
+  transform: scale(1.03);
+}
+
+/* ── "My Car" Badge ─────────────────────────────────────────── */
+.userAddedBadge {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+/* ── Delete Button ──────────────────────────────────────────── */
+.deleteCarBtn {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--silver);
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.deleteCarBtn:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ── Fix description typo from original style.css ───────────── */
+.carDescription {
+  color: var(--silver);
+  font-size: 0.9rem;
+  padding-top: 15px;
+  border-top: 1px solid var(--gray);
+}
+
+/* ── Responsive Modal ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .modalBox {
+    padding: 22px 18px;
+  }
+  #addCarBtn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Back Button ────────────────────────────────────────────── */
+.headerTop {
+  margin-bottom: 10px;
+}
+
+.backBtn {
+  display: inline-block;
+  color: var(--silver);
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: var(--red);
+}
+
+/* ── Remove Button Always at Bottom ────────────────────────── */
+.carCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.carDescription {
+  flex: 1;
+}
+
+.deleteCarBtn {
+  margin-top: auto;
+}
+
+/* ── Watch Review Badge ─────────────────────────────────────── */
+.youtubeBadge {
+  display: inline-block;
+  background: #ff0000;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+
+.carCard:hover .youtubeBadge {
+  background: #cc0000;
+}
+
+/* ── Confirm Remove Modal ───────────────────────────────────── */
+#confirmModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#confirmModal.active {
+  display: flex;
+}
+
+.confirmBox {
+  background: var(--dark);
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  padding: 40px 35px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: modalSlideIn 0.25s ease;
+}
+
+.confirmIcon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.confirmTitle {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.confirmMsg {
+  color: var(--silver);
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+#confirmCancelBtn {
+  background: transparent;
+  border: 2px solid var(--gray);
+  color: var(--silver);
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+#confirmCancelBtn:hover {
+  border-color: var(--silver);
+  color: var(--white);
+}
+
+#confirmDeleteBtn {
+  background: var(--red);
+  border: none;
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#confirmDeleteBtn:hover {
+  background: #cc0000;
+  transform: scale(1.03);
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl's Favorite Cars Collection</title>
+    <link rel="stylesheet" href="carcollection.css">
+    <link rel="stylesheet" href="carcollection-addition.css">
+</head>
+<body>
+    <header>
+        <div class="headerTop">
+            <a href="home.html" class="backBtn">&#8592; Dashboard</a>
+        </div>
+        <h1>Carl's Favorite Cars</h1>
+        <p>A collection of my dream cars</p>
+    </header>
+
+    <main class="container">
+        <section class="searchSection">
+            <input type="text" id="searchBar" placeholder="Search a car...">
+        </section>
+
+        <section class="filter-section">
+            <button class="filter-btn active" data-filter="all">All Cars</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+            <button class="filter-btn" data-filter="hypercar">Hypercar</button>
+            <button class="filter-btn" data-filter="suv">SUV</button>
+            <button class="filter-btn" data-filter="electric">Electric</button>
+            <button class="filter-btn" data-filter="pickup">Pickup</button>
+            <button class="filter-btn" data-filter="sedan">Sedan</button>
+        </section>
+
+        <!-- Cards render here dynamically -->
+        <section class="carsGrid"></section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Favorite Cars Collection. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Add Car Button -->
+    <button id="addCarBtn">+ Add Car</button>
+
+    <!-- Add Car Modal -->
+    <div id="addCarModal">
+        <div class="modalBox">
+            <div class="modalHeader">
+                <h2>+ Add New Car</h2>
+                <button id="closeModal">&times;</button>
+            </div>
+
+            <form id="addCarForm">
+                <div class="formGrid">
+                    <div class="formGroup">
+                        <label for="carBrand">Brand</label>
+                        <input type="text" id="carBrand" placeholder="e.g. Porsche" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carName">Model Name</label>
+                        <input type="text" id="carName" placeholder="e.g. 911 GT3 RS" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carCategory">Category</label>
+                        <select id="carCategory" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="sports">Sports</option>
+                            <option value="hypercar">Hypercar</option>
+                            <option value="suv">SUV</option>
+                            <option value="electric">Electric</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="sedan">Sedan</option>
+                        </select>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carHp">Horsepower (HP)</label>
+                        <input type="text" id="carHp" placeholder="e.g. 500" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carAcceleration">0-60 mph (seconds)</label>
+                        <input type="text" id="carAcceleration" placeholder="e.g. 3.5" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carTopSpeed">Top Speed (mph)</label>
+                        <input type="text" id="carTopSpeed" placeholder="e.g. 200" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="carWeight">Weight (kg)</label>
+                        <input type="text" id="carWeight" placeholder="e.g. 1500" required>
+                    </div>
+
+                    <!-- YouTube URL — full row -->
+                    <div class="formGroup full">
+                        <label for="carYoutube">YouTube Review URL (optional)</label>
+                        <input type="text" id="carYoutube" placeholder="e.g. https://www.youtube.com/watch?v=...">
+                    </div>
+
+                    <!-- Image — full row -->
+                    <div class="formGroup full">
+                        <label>Car Image</label>
+                        <div class="imageUploadArea">
+                            <input type="file" id="imageUpload" accept="image/*">
+                            <div class="orDivider">— OR —</div>
+                            <input type="text" id="imageUrl" placeholder="Paste image URL...">
+                            <img id="imagePreview" src="" alt="Preview">
+                        </div>
+                    </div>
+
+                    <!-- Description — full row -->
+                    <div class="formGroup full">
+                        <label for="carDescription">Description</label>
+                        <textarea id="carDescription" placeholder="Describe this car..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="modalActions">
+                    <button type="button" id="cancelBtn">Cancel</button>
+                    <button type="submit" id="submitCarBtn">Add to Collection</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmModal">
+    <div class="confirmBox">
+        <div class="confirmIcon">🗑️</div>
+        <h2 class="confirmTitle">Remove Car?</h2>
+        <p class="confirmMsg" id="confirmMsg">Are you sure you want to remove this car from your collection?</p>
+        <div class="confirmActions">
+            <button id="confirmCancelBtn">Keep It</button>
+            <button id="confirmDeleteBtn">Yes, Remove</button>
+        </div>
+    </div>
+
+    <script src="functions.js"></script>
+</div>
+</body>
+</html>
